@@ -1,0 +1,57 @@
+---
+title: "Data Visulization of Incarcerations"
+author: "Nicholas Boren"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("analysis.R")
+library(tidyverse)
+options(scipen=999)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This data analysis focuses on looking for trends and satistics within incarceration data across the United States specifically looking at the relationships between white and black incarcerations. 
+
+This data is sourced form the Vera Inustice of Justice and covers "County- and jurisdiction-level jail data (1970-2018)".
+
+## Summary Information
+
+Some important summary statistics about the white vs black incarceration satistics is:
+
+Highest state of black population in jail: ``r highest_state_black``
+
+Highest state of white population in jail: ``r highest_state_white``
+
+Total value of black population in jail: ``r total_black_pop``
+
+Total value of white population in jail: ``r total_white_pop``
+
+Min value of black population in jail: ``r min_back_pop``
+
+Min value of white population in jail: ``r min_white_pop``
+
+## Time series plots
+
+```{r, echo=FALSE, warning=FALSE}
+time_series
+```
+
+This time series plot shows the realtonship between the total jail population for a demographic vs the year. In this plot we can see that by specfically only looking at this graph we can assume that white people are put into jail more than black people.
+
+```{r, echo=FALSE, warning=FALSE}
+time_vs_pop_rate
+```
+
+This time series plot shows the relationship between the jail population rate vs the current year. In this plot we get a bigger picture and see that in fact black people are put into jail much more often then white people. One major take away from this is that it's important to understand that some trends might not show the bigger picture. In this case the overall population of white people is higher than the population of black people. So it makes it seem that more white people are being incrasrted while if we look at the standarized data it tells a differnet story.
+
+## Map
+
+```{r, echo=FALSE, warning=FALSE}
+map
+```
+
+Finally in this United States map we can see the density of black jail populations in the year 2018. Some overall trends we can notice from a glance is that states further south have higher prison populations. 
